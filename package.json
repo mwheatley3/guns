@@ -1,0 +1,19 @@
+{
+  "name": "guns",
+  "version": "1.0.0",
+  "description": "the sun it our",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwheatley3/guns.git"
+  },
+  "author": "me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mwheatley3/guns/issues"
+  },
+  "homepage": "https://github.com/mwheatley3/guns#readme"
+}
