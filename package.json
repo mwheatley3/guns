@@ -1,7 +1,7 @@
 {
   "name": "guns",
   "version": "1.0.0",
-  "description": "the sun it our",
+  "description": "the sun it out",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/mwheatley3/guns/issues"
   },
-  "homepage": "https://github.com/mwheatley3/guns#readme"
+  "homepage": "https://github.com/mwheatley3/guns#readme",
+  "dependencies": {
+    "react": "^15.2.1"
+  }
 }
