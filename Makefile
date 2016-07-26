@@ -1,2 +1,2 @@
 default:
-	go build
+	go build guns.go
