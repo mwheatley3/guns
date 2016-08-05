@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Router, Route, hashHistory } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 class App extends Component {
   render() {
     return (
-      <Router history={ hashHistory }>
+      <Router history={ browserHistory }>
         <Route path="/" component={ Home } />
         <Route path="/address" component={ Address } />
       </Router>

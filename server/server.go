@@ -24,12 +24,19 @@ func Start() {
 	// 	w.Header().Set("Content-Type", "application/json; charset=utf-8")
 	// 	json.NewEncoder(w).Encode(data)
 	// })
-
+	h := http.StripPrefix("/build/", http.FileServer(http.Dir("client/build")))
+	http.Handle("/build/", h)
 	http.HandleFunc("/", loadIndex)
 
 	log.Fatal(http.ListenAndServe(":8081", nil))
 }
 
 func loadIndex(w http.ResponseWriter, r *http.Request) {
-	http.ServeHTML(w, r, "./client/index.html")
+	println("serving index")
+	http.ServeFile(w, r, "./client/index.html")
+}
+
+func loadBundle(w http.ResponseWriter, r *http.Request) {
+	println("hi")
+	http.ServeFile(w, r, "./client/build/bundle.js")
 }
