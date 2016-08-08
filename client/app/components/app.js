@@ -1,16 +1,30 @@
-import { Component, PropTypes } from 'react';
-// import { Router, Route, browserHistory } from 'react-router';
-// import Address from './address.js';
-const { element } = PropTypes;
+import React, { Component, PropTypes } from 'react';
+import DevTool from 'mobx-react-devtools';
+
+import TodoStore from '../store.js';
+const store = new TodoStore;
 
 export default class App extends Component {
   static propTypes = {
-    children: element.isRequired,
+    children: PropTypes.element.isRequired,
 };
+
+  static childContextTypes = {
+    store: PropTypes.object,
+  }
+
+  getChildContext() {
+    return {
+      store: store,
+    };
+  }
+
   render() {
-    return this.props.children;
+    return (<div>
+      <DevTool />
+            <h1>This is your app</h1>
+              { this.props.children }
+            </div>
+    );
   }
 }
-// const Home = () => <h1>Hello from Home!</h1>;
-// const Address = () => <h1>We are located at 555 Jackson St.</h1>;
-// export default App;
