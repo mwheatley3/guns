@@ -30000,9 +30000,9 @@
 
 	var _container2 = _interopRequireDefault(_container);
 
-	var _to_do_view = __webpack_require__(245);
+	var _to_do_list_view = __webpack_require__(245);
 
-	var _to_do_view2 = _interopRequireDefault(_to_do_view);
+	var _to_do_list_view2 = _interopRequireDefault(_to_do_list_view);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30013,7 +30013,7 @@
 	    _reactRouter.Route,
 	    { path: '/', component: _container2.default },
 	    _react2.default.createElement(_reactRouter.Route, { path: '/address', component: _address2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/todo', component: _to_do_view2.default })
+	    _react2.default.createElement(_reactRouter.Route, { path: '/todo', component: _to_do_list_view2.default })
 	  )
 	);
 
@@ -30164,7 +30164,13 @@
 
 	var _mobxReact = __webpack_require__(36);
 
-	var _reactRouter = __webpack_require__(176);
+	var _to_do_entry = __webpack_require__(246);
+
+	var _to_do_entry2 = _interopRequireDefault(_to_do_entry);
+
+	var _to_do_view = __webpack_require__(247);
+
+	var _to_do_view2 = _interopRequireDefault(_to_do_view);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30174,7 +30180,197 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ToDoView = (0, _mobxReact.observer)(_class = (0, _reactRouter.withRouter)(_class = (_temp = _class2 = function (_Component) {
+	var ToDoListView = (0, _mobxReact.observer)(_class = (_temp = _class2 = function (_Component) {
+	  _inherits(ToDoListView, _Component);
+
+	  function ToDoListView() {
+	    _classCallCheck(this, ToDoListView);
+
+	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ToDoListView).apply(this, arguments));
+	  }
+
+	  _createClass(ToDoListView, [{
+	    key: 'render',
+	    value: function render() {
+	      var store = this.context.store;
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h1',
+	          null,
+	          'To Do LIst'
+	        ),
+	        _react2.default.createElement(
+	          'ul',
+	          null,
+	          store.todos.map(function (todo) {
+	            return _react2.default.createElement(_to_do_view2.default, { key: todo.id, todo: todo });
+	          })
+	        ),
+	        _react2.default.createElement(_to_do_entry2.default, null)
+	      );
+	    }
+	  }]);
+
+	  return ToDoListView;
+	}(_react.Component), _class2.contextTypes = {
+	  router: _react.PropTypes.object.isRequired,
+	  store: _react.PropTypes.object.isRequired
+	}, _temp)) || _class;
+
+	exports.default = ToDoListView;
+
+/***/ },
+/* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _class, _desc, _value, _class2, _class3, _temp;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _mobxReact = __webpack_require__(36);
+
+	var _mobx = __webpack_require__(35);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
+	    var desc = {};
+	    Object['ke' + 'ys'](descriptor).forEach(function (key) {
+	        desc[key] = descriptor[key];
+	    });
+	    desc.enumerable = !!desc.enumerable;
+	    desc.configurable = !!desc.configurable;
+
+	    if ('value' in desc || desc.initializer) {
+	        desc.writable = true;
+	    }
+
+	    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+	        return decorator(target, property, desc) || desc;
+	    }, desc);
+
+	    if (context && desc.initializer !== void 0) {
+	        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+	        desc.initializer = undefined;
+	    }
+
+	    if (desc.initializer === void 0) {
+	        Object['define' + 'Property'](target, property, desc);
+	        desc = null;
+	    }
+
+	    return desc;
+	}
+
+	var ToDoEntry = (0, _mobxReact.observer)(_class = (_class2 = (_temp = _class3 = function (_Component) {
+	    _inherits(ToDoEntry, _Component);
+
+	    function ToDoEntry() {
+	        _classCallCheck(this, ToDoEntry);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ToDoEntry).apply(this, arguments));
+	    }
+
+	    _createClass(ToDoEntry, [{
+	        key: 'onSubmit',
+	        value: function onSubmit(e) {
+	            e.preventDefault();
+
+	            var store = this.context.store;
+	            var toDoInput = this.refs.toDoInput;
+
+	            store.addTodo(toDoInput.value.trim());
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Add a Todo'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'entry' },
+	                    _react2.default.createElement(
+	                        'form',
+	                        { className: 'box', onSubmit: function onSubmit(e) {
+	                                return _this2.onSubmit(e);
+	                            } },
+	                        _react2.default.createElement('input', { ref: 'toDoInput', placeholder: 'New TO DO' }),
+	                        _react2.default.createElement(
+	                            'button',
+	                            null,
+	                            'Add TO DO'
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return ToDoEntry;
+	}(_react.Component), _class3.contextTypes = {
+	    router: _react.PropTypes.object.isRequired,
+	    store: _react.PropTypes.object.isRequired
+	}, _temp), (_applyDecoratedDescriptor(_class2.prototype, 'onSubmit', [_mobx.action], Object.getOwnPropertyDescriptor(_class2.prototype, 'onSubmit'), _class2.prototype)), _class2)) || _class;
+
+	exports.default = ToDoEntry;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _class, _class2, _temp;
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _mobxReact = __webpack_require__(36);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ToDoView = (0, _mobxReact.observer)(_class = (_temp = _class2 = function (_Component) {
 	  _inherits(ToDoView, _Component);
 
 	  function ToDoView() {
@@ -30186,30 +30382,24 @@
 	  _createClass(ToDoView, [{
 	    key: 'render',
 	    value: function render() {
-	      var store = this.context.store;
-	      console.log("this.context", this.context);
+	      var todo = this.props.todo;
+
+	      console.log("todo.title", todo.title);
 	      return _react2.default.createElement(
-	        'div',
+	        'li',
 	        null,
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Todo'
-	        ),
-	        _react2.default.createElement(
-	          'h2',
-	          null,
-	          store.todos
-	        )
+	        todo.title
 	      );
 	    }
 	  }]);
 
 	  return ToDoView;
-	}(_react.Component), _class2.contextTypes = {
+	}(_react.Component), _class2.propTypes = {
+	  todo: _react.PropTypes.object
+	}, _class2.contextTypes = {
 	  router: _react.PropTypes.object.isRequired,
 	  store: _react.PropTypes.object.isRequired
-	}, _temp)) || _class) || _class;
+	}, _temp)) || _class;
 
 	exports.default = ToDoView;
 
