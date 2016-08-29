@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import DevTool from 'mobx-react-devtools';
+import { withRouter } from 'react-router';
 
 import TodoStore from '../store.js';
 const store = new TodoStore;
 
+@withRouter
 export default class App extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired,
@@ -21,9 +23,9 @@ export default class App extends Component {
 
   render() {
     return (<div>
-      <DevTool />
-            <h1>This is your app</h1>
-              { this.props.children }
+                <DevTool />
+                  <h1>This is your app</h1>
+                    { this.props.children }
             </div>
     );
   }
